@@ -1,0 +1,122 @@
+.logo-lg h5 {
+    font-size: 20px;
+    color: white;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+.nav_clr {
+    background-color: #2b80ec !important;
+    border-bottom: 1px solid #d5d1d16b;
+}
+.content_custom_clr{
+    background-color: #2b80ec !important;
+}
+.content_custom2{
+    background-color: #ffffff !important;
+    margin-top: 25px;
+}
+.page-content{
+    padding: 0 !important;
+}
+.main_header{
+    width: 100%;
+    background-color: rgb(6, 98, 204);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.text_part{
+    width: 20%;
+}
+.text_part h3{
+    padding: 20px 58px;
+    color: white;
+    font-size: 24px;
+}
+.func_part{
+    width: 80%;
+}
+.nav_menu {
+    display: flex;
+    align-items: center;
+    float: right;
+    /* padding: 0 356px; */
+    margin-left: 539px;
+}
+.plus_func {
+    background-color: green;
+    text-align: center;
+    padding: 7px 10px;
+    margin: 0 10px;
+}
+.plus_func h5{
+    color: white;
+    font-size: 12px;
+    margin: 0;
+}
+.date_part{
+    margin: 0 10px;
+}
+.date_part h5 {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+}
+.notif_part{
+    margin: 0 10px;
+
+}
+.info-box p {
+    font-size: 11px;
+}
+.info-box-new-style{
+    margin-bottom: 0 !important;
+}
+.info-box-icon{
+    margin-top: 10px !important;
+}
+.info-box-text{
+    margin-bottom: 0 !important;
+}
+.header-item i{
+    color: white;
+}
+
+body[data-sidebar=dark] #sidebar-menu ul li a:hover {
+    background-color: #c7c7c79d;
+    color: black;
+}
+body[data-sidebar=dark] #sidebar-menu ul li a:hover i {
+    color: #000000;
+}
+body[data-sidebar=dark] #sidebar-menu ul li a {
+    color: #000000;
+    font-size: 15px;
+    /* font-weight: 400; */
+}
+body[data-sidebar=dark] .mm-active>a {
+    color: #000!important;
+    font-weight:600 ;
+}
+body[data-sidebar=dark] .mm-active>a i {
+    color: #000!important;
+}
+body[data-sidebar=dark] #sidebar-menu ul li ul.sub-menu li a:hover {
+    color: #000;
+}
+
+.dropdown-menu{
+    width: 232px;
+    height: 400px;
+}
+
+
+.navbar-header .dropdown .show.header-item {
+    background-color:transparent !important;
+}
+
+.form-group{
+    margin-top: 60px;
+}
