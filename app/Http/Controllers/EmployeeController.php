@@ -21,7 +21,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('admin.Employee.Employee_list');
+        $data=Employee::with('user')->get();
+       // return $data[2]->user;
+        return view('admin.Employee.Employee_list',compact('data'));
     }
 
     /**
@@ -42,11 +44,11 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        /*foreach($request->allwanace as $key=>$val)
+        foreach($request->allwanace as $key=>$val)
         {
 
         }
-        */
+
         DB::beginTransaction();
         try{
             $vallidate=$request->validate([
@@ -71,11 +73,13 @@ class EmployeeController extends Controller
               {
                 $user_id=$data->id;
                 $data=$request->all();
-                $emp_details=$this->employee_details($data,$user_id);
-                //redirect()->back()->withSuccess("Employee addded Successfully");
+                if($emp_details=$this->employee_details($data,$user_id))
+                {
+                    return redirect()->back()->withsucces("Add Employee Successfully");
+                }
 
-                //return false;
               }
+
               DB::commit();
         }
         catch(\Exception $e)
@@ -109,11 +113,12 @@ class EmployeeController extends Controller
             'basic_pay' =>$data['basic_pay'],
             'pancard' =>$data['pan_card_no']
         ]);
+        $emp_id=$emp_personal_details->id;
         foreach($data['allwanace'] as $key=>$val)
         {
              $allowance_id=$data['allowance_id'.$key];
             $emp_allowance=EmpAllowanceDetails::create([
-                "emp_id"=>$emp_personal_details->id,
+                "emp_id"=>$emp_id,
                 "user_id"=>$table_id,
                 "head_id"=>$allowance_id,
                 "amount"=>$val
@@ -123,16 +128,14 @@ class EmployeeController extends Controller
         {
              $deduction_id=$data['deduction_id'.$key];
              $emp_deduction=EmpDeductionDetails::create([
-                "emp_id"=>$emp_personal_details->id,
+                "emp_id"=>$emp_id,
                 "user_id"=>$table_id,
                 "head_id"=>$deduction_id,
                 "amount"=>$val
             ]);
         }
         return true;
-        //return $data_table;
 
-        //$data;
     }
 
     /**

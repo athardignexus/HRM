@@ -1,11 +1,12 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InsuranceController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MutualFundController;
-use GuzzleHttp\Middleware;
+use App\Http\Controllers\GenEmpSalaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +33,14 @@ Route::name('admin.')->middleware('auth')->group(function() {
     Route::get('/admin', function () {
         return view('admin.index');
    });
+
+    //Route::get('gensalary',GenEmpSalary::class,'gen_form')->name('gen_form');
     Route::resource('insurance',InsuranceController::class);
     Route::resource('MutualFund',MutualFundController::class);
     Route::resource('Employee',EmployeeController::class);
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+    Route::get('gensalary',[GenEmpSalaryController::class,'genform'])->name('genform');
+    Route::POST('emp_list',[GenEmpSalaryController::class,'emp_list'])->name('emp_list');
 });
 
 

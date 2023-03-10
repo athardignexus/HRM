@@ -206,12 +206,27 @@
                                             <table cellpadding="0" cellspacing="0" style="width: 100%; max-width: 100%;">
                                                 <tr class="thh_padding">
                                                     <th>Action</th>
-                                                    <th>Police Name</th>
-                                                    <th>Police No</th>
-                                                    <th>Branch Name</th>
+                                                    <th>Name</th>
+                                                    <th>Username/email</th>
+                                                    <th>Guardian Name</th>
                                                     <th>Mobile No</th>
+                                                    <th>Role</th>
                                                 </tr>
-                                                <tr>
+                                                @php
+                                                    $i=1;
+                                                @endphp
+                                                @foreach ($data as $key=>$val)
+                                                    <tr>
+                                                        <td>{{ $i++; }}</td>
+                                                        <td>{{ $val->user->name; }}</td>
+                                                        <td>{{ $val->user->email;  }}</td>
+                                                        <td>{{ $val->guardian_name;  }}</td>
+                                                        <td>{{ $val->user->mobileno;  }}</td>
+                                                        <td>{{ role($val->user->role,'Print'); }}</td>
+
+                                                    </tr>
+                                                @endforeach
+                                                {{-- <tr>
                                                     <td></td>
                                                 </tr>
                                                 <tr>
@@ -273,7 +288,7 @@
                                                             </ul>
                                                         </div>
                                                     </td>
-                                                </tr>
+                                                </tr> --}}
 
                                             </tr>
 

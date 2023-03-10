@@ -24,4 +24,9 @@ class Employee extends Model
         'basic_pay',
         'pancard'
     ];
+    public function user()
+    {
+        return $this->belongsTo(user::class);
+    }
+
 }

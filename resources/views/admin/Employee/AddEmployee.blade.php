@@ -212,7 +212,7 @@
                                     @foreach ($allowance as $key => $value)
                                         <div class="col-md-6">
                                             <label for="{{ "allwanace".$key }}"><strong>{{ ucfirst(strtolower($value->allowance_head)) }}</strong></label>
-                                            <input type='text' name="{{ "allowance_id".$key }}" value="{{ $value->id }}">
+                                            <input type='hidden' name="{{ "allowance_id".$key }}" value="{{ $value->id }}">
                                             <input type="text" class="form-control" id="{{ "allwanace".$key }}" name="allwanace[]" placeholder="" required>
                                         </div>
                                     @endforeach
@@ -225,7 +225,7 @@
                                     @foreach ($deductions as $key => $value)
                                         <div class="col-md-6">
                                             <label for="{{ "deduction".$key }}"><strong>{{ ucfirst(strtolower($value->deduction_head)) }}</strong></label>
-                                            <input type='text' name="{{ "deduction_id".$key }}" value="{{ $value->id }}">
+                                            <input type='hidden' name="{{ "deduction_id".$key }}" value="{{ $value->id }}">
                                             <input type="text" class="form-control" id="{{ "deduction".$key }}" name="deduction[]" placeholder="" required>
                                         </div>
                                     @endforeach
